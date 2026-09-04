@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="contenedor">
+        <p class="mensaje {{ 'correcto' if 'Correcto' in mensaje else 'incorrecto' }}">{{ mensaje }}</p>
+        <a class="siguiente" href="{{ url_for('pregunta') }}">Siguiente pregunta →</a>
+    </div>
+</body>
+</html>
