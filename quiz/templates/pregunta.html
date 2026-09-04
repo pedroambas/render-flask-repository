@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="contenedor">
+        <p class="progreso">Pregunta {{ numero }} de {{ total }}</p>
+        {% if limite %}
+        <p class="tiempo">Tenés {{ limite }} segundos para responder.</p>
+        {% endif %}
+
+        <h2>{{ pregunta }}</h2>
+
+        <form method="POST">
+            {% for opcion in opciones %}
+            <label class="opcion">
+                <input type="radio" name="respuesta" value="{{ loop.index }}" required>
+                {{ loop.index }}. {{ opcion }}
+            </label>
+            {% endfor %}
+            <button type="submit">Responder</button>
+        </form>
+    </div>
+</body>
+</html>
